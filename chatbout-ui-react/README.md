@@ -1,4 +1,4 @@
-#React Chatbot Frontend
+React Chatbot Frontend
 
 A simple chatbot UI built with React, created as part of learning React fundamentals.
 This project focuses on component structure, state management, and clean UI layout.
