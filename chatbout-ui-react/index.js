@@ -1,5 +1,6 @@
 function ChatInput({ chatMessages, setChatMessages }) {
     const [inputText, setInputText] = React.useState("");
+    const [isLoading, setIsLoading] = React.useState(false);
 
     function saveInputText(event) {
         setInputText(event.target.value);
@@ -7,6 +8,12 @@ function ChatInput({ chatMessages, setChatMessages }) {
 
     async function sendMessage() {
         setInputText(""); // Clear input field immediately after sending
+
+        if(isLoading || inputText === "") {
+            return; // to prevent multiple sends or sending empty messages
+        }
+        setIsLoading(true);
+
         const newChatMessages = [
             ...chatMessages,
             {
@@ -16,13 +23,13 @@ function ChatInput({ chatMessages, setChatMessages }) {
             }
         ];
         setChatMessages(newChatMessages);
-        //can clear the input text here too, but better to do it above for better UX
+        //can clear the input text here too
         setChatMessages([ // show loading message, but doesnt get saved in history
             ...newChatMessages,
             {
                 text: "...typing",
                 sender: "bot",
-                id: crypto.randomUUID()
+                id: "Loading"
             }
         ]);
 
@@ -37,6 +44,7 @@ function ChatInput({ chatMessages, setChatMessages }) {
         ]);
 
         //setInputText("");
+        setIsLoading(false); // to show finished loading
     }
     function handleKeyDown(event) {
         if (event.key === 'Enter') {
