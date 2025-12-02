@@ -27,7 +27,7 @@ function ChatInput({ chatMessages, setChatMessages }) {
         setChatMessages([ // show loading message, but doesnt get saved in history
             ...newChatMessages,
             {
-                text: "...typing",
+                text: <img src="loading-spinner.gif" className="loading-gif" />,
                 sender: "bot",
                 id: "Loading"
             }
@@ -92,8 +92,18 @@ function ChatMessage({ text, sender }) {
 
 // render list of chat messages
 function ChatMessages({ chatMessages }) {
+    const chatMessagesRef = React.useRef(null);
+    React.useEffect(() => {
+        const containerElem = chatMessagesRef.current;
+        if (containerElem) {
+            containerElem.scrollTop = containerElem.scrollHeight;
+        }
+    }, [chatMessages]);
     return (
-        <div className="chat-output-container">
+        <div 
+            className="chat-output-container"
+            ref={chatMessagesRef}
+        >
             {chatMessages.map((chatMessage) => {
                 return (
                     <ChatMessage 
