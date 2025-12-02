@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2FBE0;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0;
+}
+.send-button {
+    background-color: seagreen; /* Green */
+    border: none;
+    color: white;
+    padding: .8em 1.2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+    margin-left: 1.5em;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+}
+
+.chat-input {
+    /* width: 70%; */
+    padding: 0.8em;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    flex-grow: 1;
+    /* max-width: 60%;
+    margin-left: auto; */
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+
+}
+
+.chat-output-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 1em;
+}
+
+.loading-gif {
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+.chat-profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.app-container {
+    /* background-color: #F2FBE0; */
+    max-width: 75em;
+    margin: auto;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em; 
+    /* border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message-bot {
+    background-color: #ACC18A; /* Light cyan for bot messages */
+    color: #1f1f1f; /* Dark cyan text */
+    font-size: 1.2em;
+    padding: 0.8em;
+    border-radius: 10px;
+    width: fit-content;
+    max-width: 65%;
+    margin: 0.5em 0;
+    margin-left: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* keep content flushed to the right inside the bubble */
+    gap: 0.8em;
+    text-align: left; /* ensure multi-line text is right-aligned */
+}
+
+.chat-message-user {
+    background-color: #DAFEB7; /* Light green for user messages */
+    color: #164d19; /* Dark green text */
+    font-size: 1.2em;
+    padding: 0.8em;
+    border-radius: 10px;
+    margin: 0.5em 0;
+    margin-left: auto; /* push bubble to the right edge */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* keep content flushed to the right inside the bubble */
+    gap: 0.8em;
+    text-align: left; /* ensure multi-line text is right-aligned */
+
+    /* size the bubble to its content, but cap to avoid overflowing the viewport */
+    width: fit-content;
+    max-width: 65%;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+.chat-message-text {
+    max-width: 70%;
+    padding: 0.8em;
+}
