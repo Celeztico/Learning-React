@@ -1,8 +1,8 @@
 import axios from 'axios';
 import dayjs from 'dayjs';
-import formatMoney from '../utils/money.js';
-import Header from '../components/Header.jsx';
-import BuyAgainIcon from '../assets/images/icons/buy-again.png';
+import formatMoney from '../../utils/money.js';
+import Header from '../../components/Header.jsx';
+import BuyAgainIcon from '../../assets/images/icons/buy-again.png';
 import { useEffect, useState, Fragment } from 'react';
 import { Link } from 'react-router';
 import './OrdersPage.css';
