@@ -12,17 +12,25 @@ export function HomePage({ cart }) {
   //   }).then((data) => {
   //       console.log(data);
   //   });
-  // same thing done using axios
+  //same thing as done below using axios
 
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    axios.get('/api/products')
-      .then((response) => {
-        setProducts(response.data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios.get('/api/products')
+  //     .then((response) => {
+  //       setProducts(response.data);
+  //     });
+  // }, []);
 
+  //same thing as done above using async await
+  useEffect(()=> {
+    const fetchProductData = async() => {
+      const response = await axios.get('/api/products');
+      setProducts (response.data);
+    }
+    fetchProductData();
+  },[]);
 
   return (
     <>
