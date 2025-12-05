@@ -1,9 +1,28 @@
+import axios from 'axios';
 import Header from '../components/Header.jsx';
 import CheckmarkIcon from '../assets/images/icons/checkmark.png';
-import { products } from '../data/products.js';
+import { useEffect , useState } from 'react';
 import './HomePage.css';
 
 export function HomePage() {
+  // fetch('http://Localhost:3000/api/products')
+  //   .then((response) => {
+  //     return response.json();
+  //   }).then((data) => {
+  //       console.log(data);
+  //   });
+  // same thing done using axios
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://Localhost:3000/api/products')
+      .then((response) => {
+        setProducts(response.data);
+      });
+  }, []);
+
+
   return (
     <>
       <title>Ecommerce Project</title>
