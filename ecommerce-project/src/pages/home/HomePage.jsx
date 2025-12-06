@@ -5,7 +5,7 @@ import { ProductGrid } from './ProductGrid.jsx';
 import './HomePage.css';
 
 
-export function HomePage({ cart }) {
+export function HomePage({ cart, loadCart }) {
   // fetch('http://Localhost:3000/api/products')
   //   .then((response) => {
   //     return response.json();
@@ -40,7 +40,7 @@ export function HomePage({ cart }) {
       <Header cart={cart} />
 
       <div className="home-page">
-        <ProductGrid products={products}/>
+        <ProductGrid products={products} loadCart={loadCart}/>
       </div>
     </>
   );
